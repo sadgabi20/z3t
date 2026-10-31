@@ -8,23 +8,37 @@ import '@/global.css';
 import { Platform } from 'react-native';
 
 export const Colors = {
-  light: {
-    text: '#000000',
-    background: '#ffffff',
-    backgroundElement: '#F0F0F3',
-    backgroundSelected: '#E0E1E6',
-    textSecondary: '#60646C',
-  },
   dark: {
     text: '#ffffff',
-    background: '#000000',
+    mainColor: "#ffffff1a",
+    bgGradient: {
+      colors: ["#15071F", "#15071F", "#090512"],
+      locations: [0, 0.5, 1],
+      start: { x: 0.25, y: 0 },
+      end: { x: 0.5, y: 1 },
+    },
+    bgSurfaceGradientHover: {
+      colors: ['#ffffff1a', '#ffffff1a', '#ffffff0d'],
+      locations: [0, 0.25, 1],
+      start: { x: 0.25, y: 0 },
+      end: { x: 0.75, y: 1 },
+    },
+    bgSurfaceGradient: {
+      colors: ['#00000000', '#00000000', '#00000000'],
+      locations: [0, 0.25, 1],
+      start: { x: 0.25, y: 0 },
+      end: { x: 0.75, y: 1 },
+    },
     backgroundElement: '#212225',
     backgroundSelected: '#2E3135',
-    textSecondary: '#B0B4BA',
-  },
+    textSecondary: '#B0B4BA'
+  }
 } as const;
 
-export type ThemeColor = keyof typeof Colors.light & keyof typeof Colors.dark;
+export type ThemeColor = keyof typeof Colors.dark;
+
+/** Keys in `Colors` whose values can be spread onto a `LinearGradient`. */
+export type GradientThemeKey = 'bgGradient' | 'bgSurfaceGradient' | 'bgSurfaceGradientHover';
 
 export const Fonts = Platform.select({
   ios: {
