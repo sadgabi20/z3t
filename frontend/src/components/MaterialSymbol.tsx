@@ -2,8 +2,11 @@ import { StyleSheet } from "react-native";
 import ThemedText from "./ThemedText";
 import { useFonts } from 'expo-font';
 
+export type MaterialSymbolIcons = 'help' | 'home' | 'sports_esports' | 'account_balance_wallet'
+    | 'military_tech' | 'palette' | 'groups' | 'settings' | 'logout'
+
 interface MaterialSymbolProps {
-    icon: string;
+    icon: MaterialSymbolIcons;
     size?: number;
     weight?: number | string;
     fill?: boolean;

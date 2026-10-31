@@ -2,12 +2,12 @@ import { Pressable, StyleSheet, View } from "react-native";
 
 import SurfaceGradient from "./SurfaceGradient";
 import ThemedText from "./ThemedText";
-import MaterialSymbol from "./MaterialSymbol";
+import MaterialSymbol, { MaterialSymbolIcons } from "./MaterialSymbol";
 import { useState } from "react";
 
 interface NavButtonProps {
     name: string,
-    icon?: string
+    icon?: MaterialSymbolIcons
 }
 
 export default function NavButton({ name, icon }: NavButtonProps) {
@@ -22,7 +22,7 @@ export default function NavButton({ name, icon }: NavButtonProps) {
                 <MaterialSymbol icon={icon ?? 'help'} size={28} weight={300} opsz={48} grad={-25} />
 
                 <View>
-                    <ThemedText size={18} style={{fontWeight: 600}}>{name}</ThemedText>
+                    <ThemedText size={18} style={{ fontWeight: 600 }}>{name}</ThemedText>
                 </View>
             </SurfaceGradient>
         </Pressable>
