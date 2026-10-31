@@ -12,7 +12,7 @@ export default function SurfaceGradient({ children, style, clear = false, ...pro
         <LinearGradient
             colors={clear
                 ? ['rgba(255, 255, 255, 0.10)', 'rgba(255, 255, 255, 0.10)', 'rgba(255, 255, 255, 0.05)']
-                : ['#000000', '#000000', '#000000']}
+                : ['#00000000', '#00000000', '#00000000']}
             locations={[0, 0.25, 1]}
             start={{ x: 0, y: 0 }}
             end={{ x: 1, y: 1 }}

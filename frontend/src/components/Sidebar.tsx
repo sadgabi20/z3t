@@ -1,4 +1,4 @@
-import { StyleSheet, View, Image, Pressable, FlatList } from "react-native";
+import { StyleSheet, View, Image, FlatList, useWindowDimensions } from "react-native";
 
 import NavButton from "./NavButton";
 
@@ -19,12 +19,15 @@ const navButtons: navButtonData[] = [
 ];
 
 export default function Sidebar() {
+    const { width } = useWindowDimensions();
+    const isMobile = width <= 768;
+
     const renderNavButton = ({ item }: { item: navButtonData }) => (
         <NavButton name={item.name} />
     );
 
     return (
-        <View style={styles.container}>
+        <View style={[styles.container, isMobile && { display: "none" }]}>
             <View style={styles.sidebar}>
                 {/* Logo */}
                 <Image
