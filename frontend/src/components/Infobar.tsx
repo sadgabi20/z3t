@@ -1,9 +1,12 @@
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, useWindowDimensions } from "react-native";
 import ThemedText from "./ThemedText";
 
 export default function Infobar() {
+    const { width } = useWindowDimensions();
+    const isMobile = width <= 768;
+
     return (
-        <View style={styles.infobar}>
+        <View style={[styles.infobar, isMobile && { display: "none" }]}>
             <ThemedText>Infobar</ThemedText>
         </View>
     )
