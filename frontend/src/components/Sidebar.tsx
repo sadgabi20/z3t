@@ -25,20 +25,22 @@ export default function Sidebar() {
 
     return (
         <View style={styles.container}>
-            {/* Logo */}
-            <Image
-                source={require('@/assets/images/logo.webp')}
-                style={styles.logoImg}
-                resizeMode="contain"
-            />
-
-            {/* Navigation Buttons */}
-            <View style={styles.navs}>
-                <FlatList
-                    data={navButtons}
-                    renderItem={renderNavButton}
-                    keyExtractor={(item) => item.id}
+            <View style={styles.sidebar}>
+                {/* Logo */}
+                <Image
+                    source={require('@/assets/images/logo.webp')}
+                    style={styles.logoImg}
+                    resizeMode="contain"
                 />
+
+                {/* Navigation Buttons */}
+                <View style={styles.navs}>
+                    <FlatList
+                        data={navButtons}
+                        renderItem={renderNavButton}
+                        keyExtractor={(item) => item.id}
+                    />
+                </View>
             </View>
         </View>
     );
@@ -46,8 +48,16 @@ export default function Sidebar() {
 
 const styles = StyleSheet.create({
     container: {
+        flex: 1,
+        flexShrink: 0,
+        alignItems: "flex-end",
+        minWidth: 0,
+        maxWidth: 591,
+    },
+    sidebar: {
         gap: 16,
         padding: 8,
+        width: 256,
     },
     logoImg: {
         width: 64,

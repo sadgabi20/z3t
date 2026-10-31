@@ -64,9 +64,12 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0,0,0,0.75)',
   },
   main: {
+    flex: 1,
+    flexShrink: 1,
     flexDirection: "row",
     justifyContent: "center",
     gap: 16,
+    alignSelf: "flex-start",
   },
   bgImg: {
     position: 'absolute',
