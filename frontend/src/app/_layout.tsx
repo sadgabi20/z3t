@@ -4,7 +4,6 @@ import { StyleSheet, View, Image, useWindowDimensions } from 'react-native';
 import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context';
 import { LinearGradient } from 'expo-linear-gradient';
 
-import { AnimatedSplashOverlay } from '@/components/animated-icon';
 import Main from '@/components/Main';
 import Sidebar from '@/components/Sidebar';
 import Infobar from '@/components/Infobar';
@@ -23,8 +22,6 @@ export default function TabLayout() {
 
   return (
     <ThemeProvider value={DarkTheme}>
-      <AnimatedSplashOverlay />
-
       <SafeAreaProvider style={styles.safeAreaProvider}>
         <SafeAreaView style={styles.safeArea}>
           <LinearGradient
