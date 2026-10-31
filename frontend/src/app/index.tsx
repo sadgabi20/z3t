@@ -1,12 +1,19 @@
 import * as Device from 'expo-device';
 import { Platform, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { View } from 'react-native';
+
+import ThemedText from '@/components/ThemedText';
 
 import { BottomTabInset, MaxContentWidth, Spacing } from '@/constants/theme';
 
+import '@/global.css';
+
 export default function HomeScreen() {
   return (
-    <div>a</div>
+    <View>
+      <ThemedText>Main</ThemedText>
+    </View>
   );
 }
 

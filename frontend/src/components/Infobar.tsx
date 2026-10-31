@@ -1,5 +1,8 @@
+import { View } from "react-native";
+import ThemedText from "./ThemedText";
+
 export default function Infobar() {
     return (
-        <div>Infobar</div>
+        <View><ThemedText>Infobar</ThemedText></View>
     )
 }
