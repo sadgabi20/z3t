@@ -3,12 +3,13 @@ import { Text } from "react-native";
 
 interface ThemedTextProps {
     style?: any,
-    children: React.ReactNode;
+    children: React.ReactNode,
+    size?: number,
 }
 
-export default function ThemedText({ children, style, ...props }: ThemedTextProps) {
+export default function ThemedText({ children, style, size, ...props }: ThemedTextProps) {
     return (
-        <Text style={[styles.text, style]} {...props}>
+        <Text style={[styles.text, style, { fontSize: size }]} {...props}>
             {children}
         </Text>
     )
@@ -17,5 +18,6 @@ export default function ThemedText({ children, style, ...props }: ThemedTextProp
 const styles = {
     text: {
         color: 'var(--text-body)',
+        fontSize: 16,
     }
 }

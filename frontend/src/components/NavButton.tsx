@@ -18,7 +18,7 @@ export default function NavButton({ name }: NavButtonProps) {
         >
             <SurfaceGradient style={styles.button} clear={isHovered}>
                 <View>
-                    <ThemedText>{name}</ThemedText>
+                    <ThemedText size={20} style={{fontWeight: "bold"}}>{name}</ThemedText>
                 </View>
             </SurfaceGradient>
         </Pressable>
