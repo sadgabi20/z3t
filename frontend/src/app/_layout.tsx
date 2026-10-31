@@ -1,6 +1,6 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from 'expo-router';
+import { DarkTheme, ThemeProvider } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
-import { StyleSheet, useColorScheme, View, Image, useWindowDimensions } from 'react-native';
+import { StyleSheet, View, Image, useWindowDimensions } from 'react-native';
 import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context';
 import { LinearGradient } from 'expo-linear-gradient';
 
@@ -8,6 +8,8 @@ import { AnimatedSplashOverlay } from '@/components/animated-icon';
 import Main from '@/components/Main';
 import Sidebar from '@/components/Sidebar';
 import Infobar from '@/components/Infobar';
+
+import { useTheme } from '@/hooks/use-theme';
 
 import '@/global.css';
 
@@ -17,19 +19,16 @@ export default function TabLayout() {
   const { width } = useWindowDimensions();
   const isMobile = width <= 768;
 
-  const colorScheme = useColorScheme();
+  const theme = useTheme();
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+    <ThemeProvider value={DarkTheme}>
       <AnimatedSplashOverlay />
 
       <SafeAreaProvider style={styles.safeAreaProvider}>
         <SafeAreaView style={styles.safeArea}>
           <LinearGradient
-            colors={["#15071F", "#15071F", "#090512"]}
-            locations={[0, 0.5, 1]}
-            start={{ x: 0.25, y: 0 }}
-            end={{ x: 0.5, y: 1 }}
+            {...theme.bgGradient}
             style={styles.container}
           >
             {/* Background image */}

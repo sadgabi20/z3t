@@ -31,7 +31,7 @@ export default function Sidebar() {
             <View style={styles.sidebar}>
                 {/* Logo */}
                 <Image
-                    source={require('@/assets/images/logo.webp')}
+                    source={require('@/assets/images/logo.png')}
                     style={styles.logoImg}
                     resizeMode="contain"
                 />
@@ -63,6 +63,7 @@ const styles = StyleSheet.create({
         width: 256,
     },
     logoImg: {
+        marginHorizontal: 8,
         width: 64,
         height: 64,
     },

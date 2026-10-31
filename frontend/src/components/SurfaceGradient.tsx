@@ -1,21 +1,24 @@
-import { LinearGradient } from 'expo-linear-gradient';
+import { LinearGradient, type LinearGradientProps } from 'expo-linear-gradient';
 import React from 'react';
+import { type StyleProp, type ViewStyle } from 'react-native';
 
-interface SurfaceGradientProps {
+import { type GradientThemeKey } from '@/constants/theme';
+import { useTheme } from '@/hooks/use-theme';
+
+interface SurfaceGradientProps extends Omit<LinearGradientProps, 'colors' | 'locations' | 'start' | 'end'> {
     children: React.ReactNode,
-    style?: any,
+    style?: StyleProp<ViewStyle>,
     clear?: boolean,
+    type?: GradientThemeKey,
 }
 
-export default function SurfaceGradient({ children, style, clear = false, ...props }: SurfaceGradientProps) {
+export default function SurfaceGradient({ children, style, clear = false, type, ...props }: SurfaceGradientProps) {
+    const theme = useTheme();
+    const gradient = theme[type ?? (clear ? 'bgSurfaceGradientHover' : 'bgSurfaceGradient')];
+
     return (
         <LinearGradient
-            colors={clear
-                ? ['rgba(255, 255, 255, 0.10)', 'rgba(255, 255, 255, 0.10)', 'rgba(255, 255, 255, 0.05)']
-                : ['#00000000', '#00000000', '#00000000']}
-            locations={[0, 0.25, 1]}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 1 }}
+            {...gradient}
             style={style}
             {...props}
         >
